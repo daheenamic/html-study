@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table</title>
+<style type="text/css">
+	/* table 바로 밑에 있을 때는 > 표시를 하면 된다. */
+	table > caption {
+		/* border : 테두리 - 데이터 특성에 따라 알아서 들어간다. */
+		/* 2px - 선 두께. px: 화면의 점 하나 - 0을 제외하면 단위를 꼭 쓰기. 단위 입력 안하면 숫자 무시됨. */
+		/* solid - 테두리 스타일 (실선) */
+		/* #888 - 선의 색상 */
+		border:	2px solid #888; /* 2px 굵기의 실선으로 회색색상 */
+	}
+	
+	th{
+		/* 배경색은 블랙, 글씨색은 화이트 */
+		/* css 여러개를 지정 할 때는 세미콜론으로 구분한다. 맨 마지막 세미콜론은 생략 가능 */
+		background: black;
+		color: white;
+	}
+	
+	td{
+		border: 1px solid #444;
+	}
+	
+	td, th, caption{
+		padding: 5px; /* 테두리와 글자사이의 간격 */
+	}
+	table{
+		width: 500px;
+		/* margin : 여백
+		10px (상하좌우 모두 10px); 
+		5px 10px (상5px 우10px 하5px 좌10px);
+		10px 20px 30px 40px (상10px 우20px 하30px 좌40px);
+		auto : 좌우 여백을 동일하게
+		 */
+		margin: 0 auto; 
+	}
+</style>
+</head>
+<body>
+	<!-- table - thead, tbody, tfooter, caption - tr - th, td - data -->
+	<table>
+		<caption>&lt;자바 개발자 과정&gt;</caption>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>과목</th>
+				<th>강사</th>
+				<th>일정</th>
+				<!-- tbody에 들어간 데이터가 길이가 길어지면 thead에 들어간 데이터는 가운데 정렬이 된다. -->
+			</tr>
+		</thead>
+		<tbody> <!-- 구분하기 어려우면 전부 tbody에 넣으면 된다. -->
+			<tr>
+				<!-- 만약에 thead를 4개를 쓰고 tbody를 3개만 쓰면 thead 마지막 부분은 빈칸이 된다. -->
+				<td>01</td>
+				<td>개발환경 구축</td>
+				<td>이영환</td>
+				<td>2022.11.18~11.24</td>
+				<!-- 데이터에 길이에 따라 테이블의 길이가 늘어난다. -->
+			</tr>
+			<tr>
+				<td>02</td>
+				<td>JAVA</td>
+				<td>이영환</td>
+				<td>2022.11.26~12.30</td>
+			</tr>
+			<tr>
+				<td>03</td>
+				<td>오라클</td>
+				<td>이영환</td>
+				<td>2023.01.02~01.20</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

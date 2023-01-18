@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>div</title>
+<style type="text/css">
+div {
+	border: 1px solid #444;
+}
+
+#subMenu {
+	width: 300px;
+	/* 박스의 위치 */
+	float: left;
+}
+
+#body, #footer {
+	/* 다른 박스와의 겹치는 부분을 해결 하기 위해 만듦
+	데이터가 있는 경우에 겹치지 않게 한다. */
+	clear: both;
+}
+
+#container{
+	width: 900px;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<div id="headerLogo">헤더</div>
+			<div id="nav">메인메뉴</div>
+		</div>
+		<div id="body">
+			<div id="subMenu">서브메뉴</div>
+			<div id="dataBody">데이터 표시</div>
+		</div>
+		<div id="footer">카피라이터</div>
+	</div>
+</body>
+</html>
