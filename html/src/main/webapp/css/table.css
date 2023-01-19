@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+}
+
+th {
+	background: gray;
+	color: white;
+}
+
+td {
+	border: 1px solid #aaa;
+}
+
+td, th {
+	padding: 5px;
+}
+td > input, td > textarea {
+	width: 99%;
+	height: 2em;
+	border: none;
+}
+
+td > input:hover, td > textarea:hover{
+	outline: none;
+}
