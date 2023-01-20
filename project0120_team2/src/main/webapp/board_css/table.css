@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+th{
+	width: 150px;
+	border-collapse: collapse;
+	
+}
+th{
+}
+td{	
+}
+
+td,th{	
+	padding: 10px;
+	border-radius: 0.5em;
+}
+a > button:hover{
+	cursor: pointer;
+}
+button:hover{
+	cursor: pointer;
+}
+h1{
+	text-align: left;
+}
+ input,textarea {
+	background: #e7e7e7;
+}
+input{
+	height: 1.5em;
+}
+input:focus, textarea:focus {
+	background: white;
+}
+textarea {
+	resize: none;
+}
+.dataRow:hover{
+	background: #eee;
+	color: black;
+	cursor: pointer;
+}
+#dataTable td.left{
+	text-align: left;
+}
+
+#dataTable td{	
+	border-bottom :1px solid #aaa;
+	text-align: center;
+	height: 50px;
+	
+}
+#dataTbale td, #dataTable th{
+	border-bottom :1px solid #aaa;
+	padding: 20px;
+}
+
+#dataTable{
+	border-collapse :collapse;  /*한줄로 합치는 코드*/
+	width: 100%;
+	margin: 10px 0;
+}
+#dataTableView td{
+	text-align: left;
+}
+#writeForm, table{
+	margin: 10px 0;
+	width: 100%
+}
+#writeForm input, #writeForm textarea{
+	width: 98%;
+}
+#updateForm input, #updateForm textarea {
+	width: 98%;
+}
