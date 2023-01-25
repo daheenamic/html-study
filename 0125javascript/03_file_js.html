@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS - 외부 파일 가져오기</title>
+<!-- 프로그램이 길어지면 JS파일을 따로 만들어서 URL을 넣으면 된다. 
+	 외부 JS파일을 불러와서 적용 시킨 것 이다. -->
+<script type="text/javascript" src="/js/main.js">
+//이 안에는 아무것도 쓰면 안된다. 작성 해도 동작하지 않는다.
+//그 외의 스크립트를 실행시키고 싶으면 script 태그를 따로 선언해서 해야 한다.
+</script>
+</head>
+<!-- body 부분에 load가 다 되면 실행되는 이벤트 onload="js" -->
+<!-- document가 다 되면 발생되는 이벤트 : onload -->
+<body onload="alert('로딩 후 경고');">
+	<h1>외부 파일 가져오기</h1>
+</body>
+</html>

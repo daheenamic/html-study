@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	button {
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript">
+	// 호출을 해야 실행되는 함수 선언.
+	function action() {
+		// js에서 문자열을 표시 할 때 -> [""] or [''] (쌍따옴표, 따옴표) 둘 다 가능.
+		// "(특수문자 쌍따옴표)를 출력하고자 하면 \" 라고 쓰면 된다.
+		alert("추가데이터");
+	}
+/*	
+  function action() {
+		// 함수의 변수명이 같다면 오류가 나지 않고 가장 마지막에 선언된 함수가 실행된다.
+		alert("추가데이터2");
+	}
+*/
+</script>
+</head>
+<body>
+	<!-- button 태그 안에 JS 코드를 넣어서 사용하기 -->
+ 	<button onclick="document.write('<h1>추가데이터</h1>')">document</button>
+	<button onclick="console.log('추가데이터')">console</button>
+	<button onclick="alert('추가데이터')">alert</button> <br> <hr>
+	<!-- 함수 호출 해서 사용하기 -->
+	<button onclick="action()">alert</button>
+</body>
+</html>

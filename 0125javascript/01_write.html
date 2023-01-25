@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS - HTML 태그 출력</title>
+<!-- 여기서 쓰는 코드는 JQuery 코드와 같다. -->
+<script type="text/javascript">
+	// javascript 주석은 // - 한 줄 중에서 // 뒤에 있는 것은 주석, /* 범위 주석 */
+	// document.write() - body 태그 안에 마지막에 추가 시킨다.
+	// 원래 있던 body 태그 안에 데이터들은 뒤로 밀린다. -> 실행되는 순서대로 추가 시킨다.
+	document.write("<h1>JS - HTML 태그 출력</h1>"); // 1번
+	document.write("<h1>JS - HTML 태그 출력(2)</h1>"); // 2번
+	// 경고창을 띄울 때 사용. [window.]은 생략 가능.
+	// document와 window는 처리되는 객체가 다르기 때문에 alert 경고창이 먼저 뜨고 document 내용이 뜬다.
+	/* document 객체는 일단 document에 다 저장한 후에 css 처리를 하고 출력을 한다.
+	   그런데 alert은 그럴 필요가 없어서 먼저 뜨는 것이다. */
+	// 코드가 길어서 오류를 잡기 힘들 때 개발자 확인용으로 쓰이기도 한다. 이 경우 나중에 주석처리를 한다.
+	window.alert("위에 있는 js 경고");
+	// 브라우저 - 검사 눌러서 console창에 뜨는 부분. 개발자가 데이터 확인용(오류확인용)으로 사용한다.
+	// 일반 사용자에게는 alert을 사용하고 개발자 확인용으로는 console을 사용하면 좋다.
+	/* 개발자 확인용으로 alert을 사용해도 되지만,
+	   for문 같이 여러번 돌려서 여러개의 데이터를 확인 해야 할 때는 console을 사용하면 좋다.
+	   코드가 완성되면 나중에 주석처리를 해주면 된다. java에서 sysout 처리 했던것과 비슷. */
+	console.log("보여줄 데이터는 100 입니다.");
+</script>
+</head>
+<body>
+	<h1>body 안에 h1 태그</h1> <!-- 3번 -->
+</body>
+<script type="text/javascript">
+	document.write("<h1>JS - HTML 태그 출력(3)</h1>"); // 4번
+	alert("아래 있는 js 경고");
+</script>
+</html>
