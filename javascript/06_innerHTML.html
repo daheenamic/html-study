@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>태그 안에 태그 넣기와 없애기 - innerHTML</title>
+<script type="text/javascript">
+	// 전역변수
+	var url = "https://cafe.naver.com/webjjangma";
+	var name = "웹짱 카페";
+	// js의 함수 : 일반 함수, 익명 함수(이름을 꼭 붙이지 않아도 될 때 - function())
+	function link() {
+		alert("링크를 만든다.");
+		document.getElementById("showDiv").innerHTML = "<a href='" + url + "'>" + name + "</a>";
+	}
+	function unlink() {
+		alert("링크를 제거한다.");
+		document.getElementById("showDiv").innerHTML = "<span>" + name + "</span>";
+	}
+</script>
+</head>
+<body>
+	<button id="linkBtn" onclick="link()">링크추가</button>
+	<button id="unlinkBtn" onclick="unlink()">링크제거</button>
+	<div id="showDiv">
+		<a href="https://cafe.naver.com/webjjangma">웹짱 카페</a>
+	</div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>condition</title>
+<script type="text/javascript">
+	var data;
+
+	function ready() {
+		// js 위치가 input 태그의 위에 있으면 input 태그를 찾을 수 없기 때문에 null이 된다.
+		// 데이터가 null인 경우에는 오류가 나지 않지만 null인 데이터를 사용하려고 하면 오류가 난다.
+		data = document.getElementById("data");
+		alert(data);
+		// if(number) - 숫자가 0이면 false, 0이 아니면 true
+		if(0) alert("0이 아닙니다.");
+		else alert("0입니다.");
+	}
+	
+	function checkData() {
+		var value = data.value;
+		alert("데이터입력 : " + value + ", 데이터타입 : " + (typeof value));
+		// if(string) - 길이가 0이면 false, 0이 아니면 true
+		if(value) alert("데이터가 있습니다");
+		else alert("데이터가 없습니다");
+		// data가 문자열인지 알아보고 싶다.
+		if(typeof value == "string") alert("문자열 입니다");
+		else alert("문자열이 아닙니다");
+		// 숫자를 입력하면 데이터 숫자로 변경되어 나오고 아니면 NaN(Not a Number) 이라고 나온다
+		alert(Number(value)); 
+	}
+</script>
+</head>
+<!-- onload 처리를 해서 함수를 호출하면 찾을 수 있다. -->
+<body onload="ready();">
+데이터 입력 : <input id="data" onkeyup="checkData();">
+</body>
+</html>

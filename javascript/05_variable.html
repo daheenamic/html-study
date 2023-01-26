@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//	const 변수는 선언과 동시에 값을 넣어줘야 한다.
+// 	const co;
+// 	co = 7777; // 오류
+
+	var a = 10; // 데이터 형식에 따라 타입이 정해진다.
+	alert(a); // 출력값 : 10
+	alert(typeof a); // 출력값 : number
+	a = 20;
+	alert(a); // 출력값 : 20
+	
+	if(a == "20") alert("20 == \"20\"");
+	if(a === "20") alert("20 === \"20\"");
+	else alert("20 !=== \"20\"");
+		
+	const b = 100;
+	alert(b); // 출력값 : 100
+//	b = a; // 오류 Uncaught TypeError: Assignment to constant variable.
+//	alert(b);
+	// const 변수 b는 다른 값으로 변경할 수 없다.
+	let c = 1000;
+	alert(c); // 출력값 1000
+	c = 2000;
+	alert(c); // 출력값 2000
+	
+	// 변수를 선언하지 않아도 js에서는 타입을 정하고 저장도 해준다.
+	d = 10000;
+	alert(d); // 출력값 10000
+	d = 20000;
+	alert(d); // 출력값 20000
+	
+	e = "java";
+	alert(typeof e); // 출력값 string
+	alert(e); // 출력값 java
+</script>
+</head>
+<body>
+
+</body>
+</html>

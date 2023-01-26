@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var dataTag;
+	var jumin1, jumin2;
+	var str = "JAVA 개발자";
+	var num;
+	for (i = 0; i < str.length; i++) {
+		console.log(str.charAt(i)) // 출력값 'JAVA 개발자' - 한글자씩 줄바꿈해서 나옴
+	}
+	function ready() {
+		// dataTag(input tag)를 찾아서 dataTag 변수에 저장하는 처리
+		dataTag = document.getElementById("data");
+		// jumin1, jumin2(input tag)를 찾아서 jumin1과 jumin2에 저장하는 처리
+		jumin1 = document.getElementById("jumin1");
+		jumin2 = document.getElementById("jumin2");
+		// num
+		num = document.getElementById("number");
+	}
+	function checkData() {
+		// input tag의 데이터 값에 공백을 제거해서 input tag의 데이터값으로 다시 저장
+		// 데이터를 가져온다
+		var data = dataTag.value;
+		// 앞 뒤 공백을 제거한다.
+		data = data.trim();
+		// input태그의 데이터값으로 다시 저장 (앞 뒤에 공백을 아예 입력하지 못하게 한다.)
+		dataTag.value = data;
+		// console에 데이터와 길이를 출력해본다.
+		console.log("[" + data + "] , " + "길이 : " + data.length);
+	}
+	function goJumin2() {
+		if(jumin1.value.length == 6) jumin2.focus();
+	}
+	
+	// 숫자에 해당되는 정규표현식 : /\d/;
+	// [] : 안에 하나를 선택해야 한다. + : 1개 이상 반복. * : 0개 이상 반복
+	// {시작, 끝} : 반복의 시작~끝.  \d - 숫자. 비어 있으면 안된다.
+	// 시작하는 / 다음에 나오는 ^는 뒤에 나오는 데이터로 시작한다.
+	// 마지막 / 앞에 $ 바로 앞에 있는 데이터로 끝난다.
+	// 숫자로 시작해서 숫자로 끝나야 한다
+	var reg_digit = /^\d+$/;
+// 	var reg_digit = /^[0-9]+$/;
+//	alert(reg_digit);
+	
+	// 숫자 확인하는 함수
+	function checkNum() {
+		// 여기서 num.value에는 값(데이터)가 들어와서 그걸 numStr에 저장 한 것이다.
+		var numStr = num.value;
+		alert(numStr);
+		// 숫자인지 아닌지? 1. 정규표현식 사용. 2. 숫자 변환 Number() -> NaN
+		// reg_digit -= regEx 변수. numStr 정규표현식에 맞는지 확인하는 test()를 사용.
+		if(reg_digit.test(numStr)) {
+			// num의 값이 숫자이면 '숫자입니다' 경고
+			alert("숫자입니다.");
+		} else {
+			// 숫자가 아니면 num의 내용을 지우고 다시 입력할 수 있도록 커서를 num에 위치시킨다.
+			alert("숫자만 입력 하셔야 합니다.");
+			// 여기서 num.value는 객체(주소값)이라서 위의 numStr변수로 대체 할 수 없다.
+			// 주소값에 null이라는 데이터를 넣는 것임!
+			num.value = null;
+			num.focus();
+		}
+	}
+	
+</script>
+</head>
+<body onload="ready();">
+데이터 입력 : <input id="data" onkeyup="checkData();"> <br/>
+<!-- 주민등록번호 앞자리의 길이가 6이 되면 뒷자리로 자동 이동 시킨다. -->
+주민등록번호 : <input id="jumin1" onkeyup="goJumin2();"> - <input id="jumin2"> <br/>
+숫자 입력 : <input id="number"> <button onclick="checkNum();">확인</button>
+</body>
+</html>
