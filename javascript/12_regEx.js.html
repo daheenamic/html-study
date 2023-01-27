@@ -5,24 +5,22 @@
 <title>정규 표현식 정의해 놓은 외부 js 파일 이용</title>
 <script type="text/javascript" src="/js/regEx.js"></script>
 <script type="text/javascript">
-	var num;
-	var date;
-	var id;
-	var tel; 
-	var email;
-	var name1="test";
-	alert(name1);
+	// 필요한 변수 선언
+	// var : 전역변수 - 다시 같은 변수로 선언해도 같은 것을 사용한다. 값을 사용하면 문제가 생기지 않는다.
+	//		 단점) object가 잇는 경우 이미 선언되어 있는 name 같은 변수는 메서드 안에서 오류가 난다.
+	// let : 중복 선언이 안된다. var에서 발생되는 문제를 해결 할 수 있다.
+	let num, date, id, tel, email, name;
+	
 	function ready() {
 		num = document.getElementById("num");
 		date = document.getElementById("date");
 		id = document.getElementById("id");
 		tel = document.getElementById("tel");
 		email = document.getElementById("email");
-		name1 = document.getElementById("name");
-		alert(name1.value);
+		name = document.getElementById("name");
 	}
 	function checkData() {
-		alert("숫자 확인");
+//		alert("숫자 확인");
 		// 정규표현식 - regEx.js에 정의되어 있다.
 		// 숫자인지 확인하고 숫자가 아니면 경고창을 띄운다.
 		if(!test(reg_digit, num.value, reg_digit_error_msg)) {
@@ -31,39 +29,38 @@
 		};
 	}
 	function checkDate() {
-		alert("날짜 확인" + date);
+//		alert("날짜 확인" + date);
 		if(!test(reg_date, date.value, reg_date_error_msg)) {
 			date.value="";
 			date.focus();
 		};
 	}
 	function checkId() {
-		alert("아이디 확인" + id);
+//		alert("아이디 확인" + id);
 		if(!test(reg_id, id.value, reg_id_error_msg)) {
 			id.value="";
 			id.focus();
 		};
 	}
 	function checkTel() {
-		alert("연락처 확인" + tel);
+//		alert("연락처 확인" + tel);
 		if(!test(reg_tel, tel.value, reg_tel_error_msg)) {
 			tel.value="";
 			tel.focus();
 		};
 	}
 	function checkEmail() {
-		alert("이메일 확인" + email);
+//		alert("이메일 확인" + email);
 		if(!test(reg_email, email.value, reg_email_error_msg)) {
 			email.value="";
 			email.focus();
 		};
 	}
-	function checkName1() {
+	function checkName() {
 // 		alert("이름 확인" + name);
-		alert("이름 확인" + name1.value);
-		if(!test(reg_name, name1.value, reg_name_error_msg)) {
-			name1.value="";
-			//name.focus();
+		if(!test(reg_name, name.value, reg_name_error_msg)) {
+			name.value="";
+			name.focus();
 		};
 	}
 
@@ -75,6 +72,6 @@
 아이디 입력 : <input id="id"><button onclick="checkId();">확인</button> <br/>
 연락처 입력 : <input id="tel"><button onclick="checkTel();">확인</button> <br/>
 이메일 입력 : <input id="email"><button onclick="checkEmail();">확인</button> <br/>
-이름 입력 : <input id="name"><button onclick="checkName1();">확인</button> <br/>
+이름 입력 : <input id="name"><button onclick="checkName();">확인</button> <br/>
 </body>
 </html>

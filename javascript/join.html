@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<script type="text/javascript" src="/js/regEx.js"></script>
+<script type="text/javascript">
+// 필요한 변수 선언.
+// var : 전역변수 - 다시 같은 변수로 선언해도 같은 것을 사용한다. 값을 사용하면 문제가 생기지 않는다.
+//       문제) object가 있는 경우 이미 선언되어 있는 name 같은 변수는 메서드 안에서 오류가 난다.
+// let : 중복 선언이 안된다. var에서 발생되는 문제를 해결할 수 있다.
+let id, tel, email, name;
+
+// onload 호출 함수 - 아래 HTML이 로딩이 다 되면 HTML 객체들이 다 있는 상태에서 실행이 된다.
+function ready(){
+	alert("준비 함수");
+	// input 객체 찾기
+	id = document.getElementById("id");
+	tel = document.getElementById("tel");
+	email = document.getElementById("email");
+	name = document.getElementById("name");
+}
+
+// 가입 버튼을 누르면 데이터 검사를 한다.
+function checkData(){
+	// 아이디 검사
+	// alert(id);
+	// id 가 패턴에 맞지 않으면 test()에 오류메시지 경고창 띄워준다.
+	// id에 입력을 할 수 있도록 커서를 위치 시킨다.:focus()
+	if(!test(reg_id, id.value, reg_id_error_msg)) {
+		id.value="";
+		id.focus();
+		return;
+	};
+	// 연락처 검사
+	if(!test(reg_tel, tel.value, reg_tel_error_msg)) {
+		tel.value="";
+		tel.focus();
+		return;
+	};
+	if(!test(reg_email, email.value, reg_email_error_msg)) {
+		email.value="";
+		email.focus();
+		return;
+	};
+	if(!test(reg_name, name.value, reg_name_error_msg)) {
+		name.value="";
+		name.focus();
+		return;
+	};
+}
+
+</script>
+</head>
+<body onload="ready();">
+아이디 : <input id="id"><br>
+연락처 : <input id="tel"><br>
+이메일 : <input id="email"><br>
+이름 : <input id="name"><br>
+<button onclick="checkData();">가입</button>
+</body>
+</html>

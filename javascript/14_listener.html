@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event Listener</title>
+</head>
+<body>
+	<button id="clickBtn">클릭</button>
+	<div id="showClock"></div>
+	<div id="showTime"></div>
+	<div id="writeDate">작성일</div>
+</body>
+<script type="text/javascript">
+	// onclick event handler 대신에 listener를 붙여서 사용할 수 있다.
+	document.getElementById("clickBtn").addEventListener("click", function() {
+		alert("click 버튼을 click 했다.")
+	});
+	
+	// showDate()에서 return값에 그냥 day라고 주면 숫자가 나오므로
+	// 배열을 만들어서 각 번호에 요일에 해당하는 문자열을 대체한다.
+	let days = ["일", "월", "화", "수", "목", "금", "토"];
+	
+	// 1.현재 날짜 new Date() 객체를 parameter 값으로 showDate() 함수 호출하기
+	// 2.id가 showClock인 div 태그에 넣기
+	//	 - 날짜를 지정해서 넣고 싶으면 new Date("2023-01-27") 이렇게 지정하면 됨.
+	document.getElementById("showClock").innerHTML = showDate(new Date());
+	
+	// 현재 시간 정보 가져오기 (상동)
+	document.getElementById("showTime").innerHTML = showTime(new Date());
+	
+	document.getElementById("writeDate").innerHTML = writeDate(new Date("2023-01-25 00:00:00"));
+	
+	// 작성일 표시 - 24시간이 지났으면 날짜를 그렇지 않으면 시간을 출력하는 함수.
+	function writeDate(dateObj) {
+		// 현재시간을 가져와서 now에 저장
+		let now = new Date();
+		// now에 저장된 현재시간에서 시분초만 가져와서 nowTime에 저장
+		let nowTime = now.getTime();
+		// dateObj에 저장된 날짜에서 시간만 가져와서 writeTime에 저장
+		let writeTime = dateObj.getTime();
+		// 현재시간에서 가져온시간을 빼서 lastTime에 저장
+		let lastTime = nowTime - writeTime;
+		// lastTime을 일단위로 바꿈
+		let lastDate = lastTime / 1000 / 60 / 60 / 24;
+		// 작성 날짜가 1일이 지남.
+		if(lastDate > 1) return showDate(dateObj);
+		// 작성 날짜가 1일이 지나지 않았음.
+		return showTime(dateObj);
+	}
+	
+	// 원하는 날짜의 패턴은 yyyy-mm-dd(요일)
+	function showDate(dateObj) {
+		let yy = dateObj.getFullYear();
+		
+		// 년도 뒤에 2자리만 가져오기 - 시킨건 아니지만 궁금해서 그냥해봄 ㅋ
+// 		let yy2 = yy.toString().substr(2,2);
+// 		alert(yy2);	
+
+		// getMonth()는 0~11(배열이라서 0부터 시작)만 사용하기 떄문에 1을 더해줘야한다.
+		let mm = dateObj.getMonth()+1; 
+		let dd = dateObj.getDate(); 
+		// 요일정보 0~6(배열이라서 0부터 시작)까지의 데이터를 가져온다.
+		let day = dateObj.getDay();
+		
+		// ((mm<10)?"0"+mm:mm) -> 10월보다 작으면 앞에 0을 붙여서 01 이렇게 표시한다.
+		// ((dd<10)?"0"+dd:dd) -> 10일보다 작으면 앞에 0일 붙여서 01 이렇게 표시한다.
+		return yy+"-"+((mm<10)?"0"+mm:mm)+"-"+((dd<10)?"0"+dd:dd)+" ("+days[day]+")";
+	}
+	
+	// 원하는 시간 패턴 HH:MM:SS
+	function showTime(dateObj) {
+		let hh = dateObj.getHours();
+		let mm = dateObj.getMinutes();
+		let ss = dateObj.getSeconds();
+		return ((hh<10)?"0"+hh:hh)+":"+((mm<10)?"0"+mm:mm)+":"+((ss<10)?"0"+ss:ss)
+	}
+</script>
+</html>

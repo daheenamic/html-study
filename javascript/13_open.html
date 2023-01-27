@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>새창 열기</title>
+<script type="text/javascript">
+	function checkId() {
+		// 새 창 열기 ("url","창의이름","창옵션")
+		window.open("popup.html","idCheck","width=600, height=400, top=100, left=200");
+	}
+</script>
+</head>
+<body>
+	<form action="#" name="regForm">
+		아이디 : <input name="id" id="id" readonly="readonly">
+		<!-- 아이디중복체크 버튼을 누르면 새 창이 열리게 한다. -->
+		<button onclick="checkId();">아이디 중복 체크</button><br/>
+		아이디는 아이디 중복체크 버튼을 사용하세요. 창 열기를 허용 해 주셔야 합니다.
+	</form>
+</body>
+</html>

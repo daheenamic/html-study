@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pop up</title>
+<script type="text/javascript">
+	function selectId(id) {
+		// 1.전달 받은 id를 오픈한 창의 id에 세팅한다.
+		// 1-1. form과 input 태그의 name 속성을 이용해서 찾기 (name="id")
+		//	   그냥 form 태그만 쓰면 안되고 form에 name 속성을 지정해서 form name을 써야 한다.
+		opener.document.regForm.id.value = id; // 보통 이걸로 사용한다.
+		
+		// 1-2. id 속성으로 찾기 (id="id")
+// 		opener.document.getElementById("id").value = id; // 선생님은 이게 편하다고 하심.
+		// 2.창을 닫는다.
+		window.close();
+	}
+</script>
+</head>
+<body>
+<h1>아이디 중복 체크</h1>
+아이디[test]는 사용이 가능한 아이디 입니다.<br/>
+<button onclick="selectId('test')">아이디 사용하기</button>
+</body>
+</html>
