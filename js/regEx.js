@@ -26,6 +26,21 @@
  const reg_name = /^[가-힣]{2,10}$/;
  const reg_name_error_msg = "한글 2~10자리로 입력 해 주세요.";
  
+ // 제목 패턴
+ const reg_title = /^.{1,100}$/;
+ const reg_title_error_msg = "제목은 한 글자 이상 20자 이하로 입력 해 주세요."
+ 
+ // 내용 패턴
+ const reg_content = /^.{1,300}$/;
+ const reg_content_error_msg = "내용은 한 글자 이상 300자 이하로 입력 해 주세요."
+ 
+ const reg_writer = /^.{1,10}$/;
+ const reg_writer_error_msg = "작성자는 한 글자 이상 10자 이하로 입력 해 주세요."
+ 
+ // 비밀번호 - 글자이면서 4자이상 2자 이내
+ const reg_pw = /^[a-zA-Z0-9]{4,10}$/;
+ const reg_pw_error_msg = "비밀번호는 4자 이상 10자 이하로 입력 해 주세요."
+ 
  // 정규 표현식을 검사하는 함수.
  // text(위에 정규표현식 변수, 검사할 문자열, 에러메세지)
  function test(reg, str, err_msg) {
